@@ -106,6 +106,40 @@
           }
         }
       }
+    },
+    "/specifications": {
+      "tags": ["Specifications"],
+      "summary": "Create a specification.",
+      "description": "Create a new specification.",
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "example": {
+                "name": "Name of specification",
+                "description": "Description of specification"
+              }
+            }
+          }
+        }
+      },
+      "response": {
+        "201": {
+          "description": "Success"
+        },
+        "500": {
+          "description": "Specification already exists."
+        }
+      }
     }
   }
 }
