@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "RentalX Documentation",
+    "title": "RentX Documentation",
     "description": "this is an API Rent",
     "version": "1.0.0",
     "contact": {
@@ -108,36 +108,39 @@
       }
     },
     "/specifications": {
-      "tags": ["Specifications"],
-      "summary": "Create a specification.",
-      "description": "Create a new specification.",
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                }
-              },
-              "example": {
-                "name": "Name of specification",
-                "description": "Description of specification"
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Create a specification.",
+        "description": "Create a new specification.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Specification"
               }
             }
           }
-        }
-      },
-      "response": {
-        "201": {
-          "description": "Success"
         },
-        "500": {
-          "description": "Specification already exists."
+        "response": {
+          "201": {
+            "description": "Success"
+          },
+          "500": {
+            "description": "Specification already exists."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
         }
       }
     }
