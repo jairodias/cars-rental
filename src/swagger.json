@@ -101,8 +101,8 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "Success"
+          "201": {
+            "description": "Created"
           }
         }
       }
