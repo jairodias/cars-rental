@@ -84,7 +84,7 @@
         "description": "Import csv with categories",
         "requestBody": {
           "content": {
-            "application/octet-stream": {
+            "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
