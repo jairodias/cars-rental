@@ -63,4 +63,22 @@ describe("Authenticate User", () => {
       });
     }).rejects.toBeInstanceOf(AppError);
   });
+
+  it("should not be able to authenticate with incorrect email", async () => {
+    expect(async () => {
+      const user: ICreateUserDTO = {
+        driver_license: "valid_driver_license",
+        email: "valid_email@email.com",
+        password: "valid_password",
+        name: "valid_name",
+      };
+
+      await createUserUseCase.execute(user);
+
+      await authenticateUserUseCase.execute({
+        email: "invalid_email@email.com",
+        password: user.password,
+      });
+    }).rejects.toBeInstanceOf(AppError);
+  });
 });
