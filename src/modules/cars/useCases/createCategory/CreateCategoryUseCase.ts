@@ -16,7 +16,9 @@ class CreateCategoryUseCase {
   ) {}
 
   async execute({ description, name }: IRequest): Promise<void> {
-    const categoryAlreadExists = this.categoriesRepository.findByName(name);
+    const categoryAlreadExists = await this.categoriesRepository.findByName(
+      name
+    );
 
     if (categoryAlreadExists) {
       throw new AppError("Category already exists.");
