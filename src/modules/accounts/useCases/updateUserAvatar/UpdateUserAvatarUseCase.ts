@@ -1,5 +1,5 @@
+import { deleteFile } from "@utils/file";
 import { inject, injectable } from "tsyringe";
-import { deleteFile } from '../../../../utils/file';
 
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
@@ -21,7 +21,7 @@ class UpdateUserAvatarUseCase {
     if (user.avatar) {
       await deleteFile(`./tmp/avatar/${user.avatar}`);
     }
-    
+
     user.avatar = avatar_file;
 
     await this.usersRepository.create(user);
