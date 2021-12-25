@@ -13,6 +13,7 @@ export class AlterUserDeleteUsername1638915673691
       new TableColumn({
         name: "username",
         type: "varchar",
+        isUnique: true,
       })
     );
   }

@@ -4,7 +4,7 @@ export class CreateSpecifications1638830993442 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: "scecifications",
+        name: "specifications",
         columns: [
           {
             name: "id",
