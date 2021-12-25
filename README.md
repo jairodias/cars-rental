@@ -34,7 +34,6 @@ O usuário responsável pelo cadastro deve ser um usuário administrador.
 
 **Requisitos Funcionais**
 Deve ser possível cadastrar a imagem do veículo.
-Deve ser possível listar todos os veículos.
 
 **Requisitos Não Funcionais**
 Utilizar o multer para upload dos arquivos.
