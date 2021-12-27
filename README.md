@@ -8,14 +8,14 @@ Não deve ser possível cadastrar um veículo com uma placa já existente.
 O veículo deve ser cadastrado com disponibilidade, por padrão.
 O usuário responsável pelo cadastro deve ser um usuário administrador.
 
-# Listagem de carros
+# Listagem de veículos
 
 **Requisitos Funcionais**
-Deve ser possível listar todos os carros disponíveis.
-Deve ser possível listar todos os carros disponíveis pela categoria.
-Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
-Deve ser possível listar todos os carros disponíveis pelo nome da marca.
-Deve ser possível listar todos os carros disponíveis pelo nome do veículo.
+Deve ser possível listar todos os veículos disponíveis.
+Deve ser possível listar todos os veículos disponíveis pela categoria.
+Deve ser possível listar todos os veículos disponíveis pelo nome da categoria.
+Deve ser possível listar todos os veículos disponíveis pelo nome da marca.
+Deve ser possível listar todos os veículos disponíveis pelo nome do veículo.
 
 **Regras de Negócios**
 O usuário não precisa estar logado no sistema.
@@ -51,4 +51,19 @@ Deve ser possível cadastrar um aluguel.
 O aluguel deve ter duração mínima de 24 horas.
 Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
 Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo veículo.
-O usuário deve estar logado na aplicação
+O usuário deve estar logado na aplicação.
+Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível.
+
+
+# Devolução do veículo
+
+**Requisitos Funcionais**
+Deve ser possível realizar a devolução de um veículo.
+
+**Regras de Negócios**
+Se o veículo for devolvido com menos de 24 horas, deverá ser cobrado diária completa.
+Ao realizar a devolução, o veículo deverá ser liberado para outro aluguel.
+Ao realizar a devolução, o usuário deverá ser liberado para outro aluguel.
+Ao realizar a devolução, deverá ser calculado o total do aluguel.
+Caso o horário de devolução seja superior ao previsto de entrega, deverá ser cobrado multa proporcional aos dias de atraso.
+Caso haja multa, deverá ser somado ao total do aluguel.
