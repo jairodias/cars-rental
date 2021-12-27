@@ -1,5 +1,6 @@
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
+import { inject, injectable } from "tsyringe";
 
 import { IDateProvider } from "@shared/container/providers/DateProvider/IDateProvider";
 import { AppError } from "@shared/errors/AppError";
@@ -10,10 +11,13 @@ interface IRequest {
   expected_return_date: Date;
 }
 
+@injectable()
 class CreateRentalUseCase {
   private readonly MINIMUM_HOURS = 24;
   constructor(
+    @inject("RentalsRepository")
     private readonly rentalsRepository: IRentalsRepository,
+    @inject("DayJsDateProvider")
     private readonly dateProvider: IDateProvider
   ) {}
 
