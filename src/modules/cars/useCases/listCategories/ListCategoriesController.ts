@@ -8,7 +8,7 @@ class ListCategoriesController {
     const listCategoriesUseCase = container.resolve(ListCategoriesUseCase);
     const categories = await listCategoriesUseCase.execute();
 
-    return response.status(201).json({ categories });
+    return response.status(200).json(categories);
   }
 }
 
