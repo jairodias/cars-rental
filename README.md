@@ -47,9 +47,6 @@ O usuário responsável pelo cadastro deve ser um usuário administrador.
 **Requisitos Funcionais**
 Deve ser possível cadastrar um aluguel.
 
-**Requisitos Não Funcionais**
-
-
 **Regras de Negócios**
 O aluguel deve ter duração mínima de 24 horas.
 Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
