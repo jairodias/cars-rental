@@ -20,7 +20,7 @@ class DevolutionRentalUseCase {
     @inject("CarsRepository")
     private readonly carsRepository: ICarsRepository,
     @inject("DayjsDateProvider")
-    private readonly dateProvier: DayjsDateProvider
+    private readonly dateProvider: DayjsDateProvider
   ) {}
   async execute({ id }: IRequest): Promise<Rental> {
     const rental = await this.rentalsRepository.findById(id);
@@ -35,14 +35,14 @@ class DevolutionRentalUseCase {
       throw new AppError("Car doesn't exists.");
     }
 
-    const dateNow = this.dateProvier.dateNow();
-    let daily = this.dateProvier.compareInDays(rental.start_date, dateNow);
+    const dateNow = this.dateProvider.dateNow();
+    let daily = this.dateProvider.compareInDays(rental.start_date, dateNow);
 
     if (daily <= 0) {
       daily = this.MINIMUM_DAILY;
     }
 
-    const delay = this.dateProvier.compareInDays(
+    const delay = this.dateProvider.compareInDays(
       dateNow,
       rental.expected_return_date
     );
@@ -55,7 +55,7 @@ class DevolutionRentalUseCase {
     }
 
     total += daily * car.daily_rate;
-    rental.end_date = this.dateProvier.dateNow();
+    rental.end_date = this.dateProvider.dateNow();
     rental.total = total;
 
     await this.rentalsRepository.create(rental);
