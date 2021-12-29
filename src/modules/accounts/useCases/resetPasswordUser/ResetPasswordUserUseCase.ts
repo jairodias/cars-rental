@@ -40,13 +40,13 @@ class ResetPasswordUserUseCase {
       throw new AppError("Token expired.");
     }
 
-    const user = await this.usersRepository.findById(userToken.id);
+    const user = await this.usersRepository.findById(userToken.user_id);
 
     user.password = await hash(password, 8);
 
     await this.usersRepository.create(user);
 
-    await this.usersTokensRepository.deleteById(userToken.id);
+    await this.usersTokensRepository.deleteById(userToken.user_id);
   }
 }
 
