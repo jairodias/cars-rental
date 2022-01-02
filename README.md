@@ -70,7 +70,7 @@
 - O usuário deve estar logado na aplicação.
 
 
-# Listagem de Alugueis para o usuário
+# Listagem de Aluguéis do usuário
 
 **Requisitos Funcionais**
 - Deve ser possível realizar a busca de todos os alugueis do usuário.
