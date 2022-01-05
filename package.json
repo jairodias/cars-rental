@@ -13,6 +13,8 @@
     "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts"
   },
   "dependencies": {
+    "@sentry/node": "^6.16.1",
+    "@sentry/tracing": "^6.16.1",
     "@types/nodemailer": "^6.4.4",
     "D": "^1.0.0",
     "aws-sdk": "^2.1048.0",
